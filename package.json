@@ -1,0 +1,43 @@
+{
+	"name": "react-arch",
+	"displayName": "React Arch",
+	"description": "A vs code tool to generate react components on the run",
+	"version": "0.0.1",
+	"publisher": "pixoDev",
+	"repository": "",
+	"engines": {
+		"vscode": "^1.34.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+        "onCommand:extension.reactFunction",
+        "onCommand:extension.reactClass"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.reactClass",
+				"title": "React Class"
+			},
+			{
+				"command": "extension.reactFunction",
+				"title": "React Function"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "tslint -p ./",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^8.10.25",
+		"@types/vscode": "^1.34.0",
+		"tslint": "^5.16.0",
+		"typescript": "^3.5.1"
+	}
+}
