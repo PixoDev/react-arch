@@ -12,8 +12,8 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:extension.reactFunction",
-        "onCommand:extension.reactClass"
+		"onCommand:extension.reactFunction",
+		"onCommand:extension.reactClass"
 	],
 	"main": "./out/extension.js",
 	"contributes": {

@@ -1,8 +1,10 @@
 import { DirUtils } from "../utils/dir-utils";
 import * as vscode from 'vscode';
 import { NamingGenerator } from "./namingGenerator";
-import { TsxComponentSnippet } from "../snippets/tsx/tsxClassSnippet";
+import { TsxComponentSnippet } from "../snippets/tsx/tsxComponentSnippet";
 import { join } from "path";
+import { VsMessage } from "../utils/vsMessageException";
+import { TsxTestSnippet } from "../snippets/tsx/tsxTestSnippet";
 
 export class ComponentGenerator {
     private dirUtils: DirUtils;
@@ -32,21 +34,23 @@ export class ComponentGenerator {
 
 
     generateComponent() {
-        let generated;
+        let generatedComponent;
+        let generatedTest;
         if(this.naming.extension === "tsx"){
-            generated = this.dirUtils.generateFile(TsxComponentSnippet(this.naming, this.componentType));
+            generatedComponent = this.dirUtils.generateFile(TsxComponentSnippet(this.naming, this.componentType));   
+            generatedTest = this.dirUtils.generateTestFile(TsxTestSnippet(this.naming), this.naming);
         }
         
         if(this.naming.extension === "jsx"){
             //generated = this.dirUtils.generateFile(JsxComponentSnippet(this.naming));
         }
 
-        if(generated) {
-            vscode.window.showInformationMessage(this.naming.componentFilename + " created succesfully");
+        if(generatedComponent && generatedTest) {
+            throw new VsMessage(this.naming.componentFilename + " created succesfully");
         }
 
         else {
-            vscode.window.showErrorMessage("Component not generated");
+            throw new VsMessage("Cannot generate component", true);
         }
         
     }

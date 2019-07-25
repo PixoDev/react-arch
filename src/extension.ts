@@ -1,13 +1,13 @@
 // The module 'vscode' contains the VS Code extensibility API
 import * as vscode from 'vscode';
-import { FunctionalComponentGenerator } from './component-types/functionalComponent';
-import { ClassComponentGenerator } from './component-types/classComponent';
+import { FunctionalComponentGenerator } from './component-types/functionalComponentGenerator';
+import { ClassComponentGenerator } from './component-types/classComponentGenerator';
 
 export function activate(context: vscode.ExtensionContext) {
 
     let createFunctional = vscode.commands.registerCommand('extension.reactFunction', () => {
         vscode.window.showInputBox({
-            value:'/',
+            value:'/lol/lol.tsx',
             prompt: `Create New Functional component relative to your current workspace folder root i.e: '/components/button.tsx`,
             ignoreFocusOut: true,
             valueSelection: [-1, -1]

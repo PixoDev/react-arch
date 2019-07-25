@@ -1,3 +1,4 @@
+import { VsMessage } from "../utils/vsMessageException";
 
 export class NamingGenerator {
     public componentName: string;
@@ -8,10 +9,19 @@ export class NamingGenerator {
     constructor(
         public inputPath: string
     ) {
+        
         let inputArray = inputPath.split("/");
         let fileData = inputArray.slice(inputArray.length - 1)[0].split(".");
         this.name = fileData[0];
         this.extension = fileData[1]; 
+        if(!this.extension){
+            throw new VsMessage("Specify a component extension, tsx or jsx", true);
+        }
+
+        if(this.extension !== ("tsx" || "jsx")) {
+            throw new VsMessage(`${this.extension} is not a valid React Component extension`, true);
+        }
+        
         this.componentName = this.generateComponentName();
         this.testFilename = this.generateTestFilename();
         this.componentFilename = this.generateComponentFilename();
