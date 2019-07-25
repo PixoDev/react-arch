@@ -1,0 +1,17 @@
+{
+    "settings": {
+        "filenamePrefix": "",
+        "filenameSuffix":"",
+        "capitalizeFilename":"",
+        "componentNamePrefix":"",
+        "componentNameSuffix":"",
+        "generateTestFile": true,
+        "testFileSuffix": "spec"
+    },
+    "overrideSnippets": {
+        "createClassComponent": [],
+        "createFunctionComponent": [],
+        "createTest": []
+    },
+    "customSnippets": {}
+}

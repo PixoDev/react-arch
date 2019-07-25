@@ -1,10 +1,6 @@
 # React Arch
 
-A VScode extension to generate React components from snippets based on React classes or React functions with tests.
-
-You can create your own snippets, see the custom snippets section.
-
-
+A VScode extension to generate React components from snippets based on React classes or React functions with their tests.
 
 ### Usage 
 
@@ -24,3 +20,33 @@ If you want a nested one you can provide the path
 /header/header.tsx generates a component in MyReactProject/header/header.tsx
 
 NOTE: If the directory doesn't exist React Arch will generate it.
+
+
+### Custom config
+
+You can set your own config.
+
+1.Generate a r-arch.config.json file. Open the command palette -- Windows Ctrl + Shift + P / MacOs Shift + ⌘ + P. Choose React-arch create config.
+2.Override the options as you wish.
+
+### Overriding snippets
+
+To override the snippets you can modify the corresponding JSON array with this syntax:
+
+`"overrideSnippets": {
+    "createClassComponent": [
+        "import { ComponentA } from 'componentApath'",
+        "",
+        "export class {-componentName-} {",
+        "   render() {",
+        "       return (<ComponentA />)",
+        "   }",
+        "}"
+    ]
+ }
+`
+Each line of the array is a line in the generated snippet.
+Tabs and spaces are allowed.
+To inserta a line break add an empty array item.
+If you want to insert the component name variable use `{-componentName-}`.
+

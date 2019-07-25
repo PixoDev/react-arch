@@ -1,8 +1,8 @@
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, writeFileSync, createWriteStream } from 'fs';
 import * as vscode from 'vscode';
 import { resolve, normalize } from 'path';
 import { VsMessage } from './vsMessageException';
-import { NamingGenerator } from '../component-types/namingGenerator';
+import { NamingGenerator } from './namingGenerator';
 export class DirUtils {
     private dir: string
     constructor(dir: string) {
@@ -22,44 +22,52 @@ export class DirUtils {
         for (var i = 1; i <= path.length; i++) {
             var segment = path.slice(0, i).join('/');
             try {
-                existsSync(segment) ?  null : mkdirSync(segment) ;
-            } catch(e) {
+                existsSync(segment) ? null : mkdirSync(segment);
+            } catch (e) {
                 console.log("ERROR", e);
             }
-            
+
         }
     }
-    generateDir() {   
+    generateDir() {
         const dirFolder = resolve(this.dir, "../");
         this.generateDirRecursive(dirFolder);
     }
 
 
-    generateFile(content: string): boolean {
+    generateFile(content: string[]): boolean {
         const dir = this.dir;
+        console.log(dir);
         if (!this.isRootFile()) {
-            
+
         }
         this.generateDir();
-        if(!existsSync(dir)) {
-            writeFileSync(dir, content, { encoding: 'utf8' });
-        }else {
+        if (!existsSync(dir)) {
+            this.writeFile(dir, content);
+        } else {
             throw new VsMessage("This file already exists", true);
         }
-        
+
         return true
     }
 
-    generateTestFile(content: string, naming: NamingGenerator): boolean {
-        const dir = resolve(this.dir, "../") + "/" + naming.name + ".spec." + naming.extension;
-        console.log("DIRT", dir);
 
-        if(!existsSync(dir)) {
-            writeFileSync(dir, content, { encoding: 'utf8' });
-        }else {
+    writeFile(dir:string,content: string[]) {
+
+        var stream = createWriteStream(dir, { flags: 'a' });
+        content.forEach(function (item: string) {
+            stream.write(item + "\n");
+        });
+        stream.end();
+    }
+    generateTestFile(content: string[], naming: NamingGenerator): boolean {
+        const dir = resolve(this.dir, "../") + "/" + naming.testFilename;
+        console.log(dir);
+        if (existsSync(dir)) {
             throw new VsMessage("This file already exists", true);
-        }
-        
+        } 
+        this.writeFile(dir, content);
+
         return true
     }
 }
