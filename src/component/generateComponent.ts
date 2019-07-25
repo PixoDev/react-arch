@@ -37,7 +37,6 @@ export class ComponentGenerator {
         let generatedTest;
         if (this.naming.extension === "tsx") {
             generatedComponent = this.dirUtils.generateFile(TsxComponentSnippet(this.naming, this.componentType));
-            console.log("generate file");
             if(this.userConfig && !this.userConfig.settings.generateTestFile) {
                 
             }
