@@ -1,7 +1,8 @@
 # React Arch
-
 A VScode extension to generate React components from snippets based on React classes or React functions with their tests.
+  
 
+  
 ### Usage 
 
 1. Open the command palette -- Windows Ctrl + Shift + P / MacOs Shift + ⌘ + P.
@@ -33,18 +34,8 @@ You can set your own config.
 
 To override the snippets you can modify the corresponding JSON array with this syntax:
 
-`"overrideSnippets": {
-    "createClassComponent": [
-        "import { ComponentA } from 'componentApath'",
-        "",
-        "export class {-componentName-} {",
-        "   render() {",
-        "       return (<ComponentA />)",
-        "   }",
-        "}"
-    ]
- }
-`
+
+
 Each line of the array is a line in the generated snippet.
 Tabs and spaces are allowed.
 To inserta a line break add an empty array item.
