@@ -1,4 +1,4 @@
-import { DirUtils } from "../utils/dir-utils";
+import { DirUtils } from "../utils/dirUtils";
 import * as vscode from 'vscode';
 import { NamingGenerator } from "../utils/namingGenerator";
 import { TsxComponentSnippet } from "../snippets/tsx/tsxComponentSnippet";
@@ -23,7 +23,6 @@ export class ComponentGenerator {
         }
 
         if (workSpacePath) {
-            let name
             this.dir = join(workSpacePath,"/" + this.naming.componentFilename);
         }
         this.dirUtils = new DirUtils(this.dir);
@@ -37,10 +36,8 @@ export class ComponentGenerator {
         let generatedTest;
         if (this.naming.extension === "tsx") {
             generatedComponent = this.dirUtils.generateFile(TsxComponentSnippet(this.naming, this.componentType));
-            if(this.userConfig && !this.userConfig.settings.generateTestFile) {
-                
-            }
-            if(this.userConfig && this.userConfig.settings.generateTestFile || !this.userConfig) {
+            
+            if(this.userConfig.settings.generateTestFile || !this.userConfig) {
                 generatedTest = this.dirUtils.generateTestFile(TsxTestSnippet(this.naming), this.naming);
             }
         }

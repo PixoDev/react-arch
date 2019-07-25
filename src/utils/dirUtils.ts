@@ -1,14 +1,13 @@
 import { existsSync, mkdirSync, writeFileSync, createWriteStream } from 'fs';
-import * as vscode from 'vscode';
 import { resolve, normalize } from 'path';
 import { VsMessage } from './vsMessageException';
 import { NamingGenerator } from './namingGenerator';
+
 export class DirUtils {
     private dir: string
     constructor(dir: string) {
         this.dir = dir;
     }
-
 
     isRootFile() {
         let dirs = this.dir.split("/");
@@ -26,9 +25,9 @@ export class DirUtils {
             } catch (e) {
                 console.log("ERROR", e);
             }
-
         }
     }
+
     generateDir() {
         const dirFolder = resolve(this.dir, "../");
         this.generateDirRecursive(dirFolder);
@@ -60,9 +59,9 @@ export class DirUtils {
         });
         stream.end();
     }
+
     generateTestFile(content: string[], naming: NamingGenerator): boolean {
-        const dir = resolve(this.dir, "../") + "/" + naming.testFilename;
-        console.log(dir);
+        const dir = resolve(this.dir, "../", naming.testFilename);
         if (existsSync(dir)) {
             throw new VsMessage("This file already exists", true);
         } 

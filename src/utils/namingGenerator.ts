@@ -43,13 +43,21 @@ export class NamingGenerator {
         if(this.userConfig && this.userConfig.settings.componentNameSuffix) {
             componentName = componentName + this.userConfig.settings.componentNameSuffix;
         }
+
         return componentName
     };
 
 
     private capitalizeString(input: string) {
-        let capitalizedString = input.charAt(0).toUpperCase() +input.slice(1)
+        let capitalizedString = input.charAt(0).toUpperCase() +input.slice(1);
+
         return capitalizedString
+    }
+
+    private unCapitalizeString(input: string) {
+        let unCapitalizedString = input.charAt(0).toLowerCase() +input.slice(1);
+
+        return unCapitalizedString
     }
 
     private generateComponentFilename(addExtension = true): string {
@@ -58,24 +66,26 @@ export class NamingGenerator {
         if(this.userConfig.settings.filenamePrefix) {
             filename = this.userConfig.settings.filenamePrefix + filename;
         }
-
         if(this.userConfig.settings.filenameSuffix) {
             filename = filename + this.capitalizeString(this.userConfig.settings.filenameSuffix);
         }
-        return (this.userConfig.settings.capitalizeFilename ? this.capitalizeString(filename) : filename) + (addExtension ? "." + this.extension : "");
+
+        return (
+            (this.userConfig.settings.capitalizeFilename 
+            ? filename 
+            : this.unCapitalizeString(filename)) + (addExtension ? "." + this.extension : ""));
     }
 
     private generateTestFilename(): string {
         let testFilename = this.generateComponentFilename(false);
-        let testExtension = this.extension
         testFilename = this.capitalizeString(testFilename);
         if(this.userConfig.settings.testFileSuffix) {
             testFilename = testFilename + "." + this.userConfig.settings.testFileSuffix;
         }
-
         else {
             testFilename = testFilename + "." + this.testExtension;
         }
-        return testFilename + "." + this.extension;
+        
+        return (this.userConfig.settings.capitalizeFilename ? testFilename : this.unCapitalizeString(testFilename)) + "." + this.extension;
     }
 }

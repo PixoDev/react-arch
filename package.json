@@ -13,19 +13,24 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.reactFunction",
-		"onCommand:extension.reactClass"
+		"onCommand:extension.reactArchClassComponent",
+        "onCommand:extension.extension.reactArchFunctionComponent",
+        "onCommand:extension.reactArchGenerateConfig"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.reactClass",
-				"title": "React Class"
+				"command": "extension.reactArchClassComponent",
+				"title": "ReactArch Class"
 			},
 			{
-				"command": "extension.reactFunction",
-				"title": "React Function"
+				"command": "extension.reactArchFunctionComponent",
+				"title": "ReactArch Function"
+            },
+            {
+				"command": "extension.reactArchGenerateConfig",
+				"title": "ReactArch Generate Config"
 			}
 		]
 	},
