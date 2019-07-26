@@ -9,7 +9,6 @@ export const TsxTestSnippet = (naming : NamingGenerator) : string[] => {
     snippet = testTemplateTSX(naming);
     
     if(snippet) {
-        console.log("OVERRIDE",userConfig.overrideSnippets.createTest.length)
         if(userConfig.overrideSnippets.createTest.length !== 0) {
             return formatSnippet(userConfig.overrideSnippets.createTest, naming)
         } else {

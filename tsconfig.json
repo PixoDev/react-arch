@@ -6,7 +6,9 @@
 		"sourceMap": true,
 		"strict": true,
         "rootDir": "src",
-        "strictNullChecks": false
+        "strictNullChecks": false,
+        "baseUrl": "./",
+        "noImplicitAny": false
 	},
 	"exclude": ["node_modules", ".vscode-test"]
 }

@@ -17,19 +17,27 @@ export class NamingGenerator {
         let inputArray = inputPath.split("/");
         let fileData = inputArray.slice(inputArray.length - 1)[0].split(".");
         this.name = fileData[0];
-        this.extension = fileData[1]; 
-        this.testExtension = "spec";
-        if(!this.extension){
-            throw new VsMessage("Specify a component extension, tsx or jsx", true);
-        }
-
-        if(this.extension !== ("tsx" || "jsx")) {
-            throw new VsMessage(`${this.extension} is not a valid React Component extension`, true);
-        }
         
+        this.generateExtension(fileData);
         this.componentName = this.generateComponentName();
         this.testFilename = this.generateTestFilename();
         this.componentFilename = this.generateComponentFilename();
+    }
+
+    generateExtension(fileData) {
+        this.extension = fileData[1]; 
+        this.testExtension = "spec";
+        if(!this.extension){
+            new VsMessage("Specify a component extension, tsx or jsx", true);
+            return false
+        }
+
+        if(this.extension !== ("tsx" || "jsx")) {
+            new VsMessage(`${this.extension} is not a valid React Component extension`, true);
+            return false
+        }
+
+        return true
     }
 
     private generateComponentName(): string {

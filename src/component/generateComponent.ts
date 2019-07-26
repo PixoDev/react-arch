@@ -47,11 +47,11 @@ export class ComponentGenerator {
         }
 
         if (generatedComponent) {
-            throw new VsMessage(this.naming.componentFilename + " created succesfully");
+            new VsMessage(this.naming.componentFilename + " created succesfully");
         }
 
         else {
-            throw new VsMessage("Cannot generate component", true);
+            new VsMessage("Cannot generate component", true);
         }
 
     }

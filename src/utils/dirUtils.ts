@@ -82,9 +82,12 @@ export class DirUtils {
             this.generateDirRecursive(resolve(this.getRootDir(), "test"));
         }
         if (existsSync(dir)) {
-            throw new VsMessage("This file already exists", true);
-        } 
-        this.writeFile(dir, content);
+            new VsMessage("This file already exists", true);
+            return false
+        } else {
+            this.writeFile(dir, content);
+        }
+        
 
         return true
     }

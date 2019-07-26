@@ -10,5 +10,6 @@ export const formatSnippet = (content: string[], naming: NamingGenerator) => {
         line = line.replace(new RegExp("{-componentName-}", "g"), naming.componentName);
         return line
     })
+    
     return formattedContent;
 }
