@@ -21,4 +21,6 @@ interface Settings {
     componentNameSuffix: string;
     generateTestFile: boolean;
     testFileSuffix: string;
+    independentTestFilesDirectory: boolean;
+    testsMirrorComponentsDirectory: boolean;
 }

@@ -1,12 +1,16 @@
-{
+import { UserConfig } from "../models/userConfig.interface";
+
+export const defaultConfig: UserConfig = {
     "settings": {
         "filenamePrefix": "",
         "filenameSuffix":"",
-        "capitalizeFilename":"",
+        "capitalizeFilename":true,
         "componentNamePrefix":"",
         "componentNameSuffix":"",
         "generateTestFile": true,
-        "testFileSuffix": "spec"
+        "testFileSuffix": "spec",
+        "independentTestFilesDirectory": false,
+        "testsMirrorComponentsDirectory":false
     },
     "overrideSnippets": {
         "createClassComponent": [],

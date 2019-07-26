@@ -1,8 +1,8 @@
 {
 	"name": "react-arch",
 	"displayName": "React Arch",
-    "description": "A vs code tool to generate react components on the run",
-    "icon": "assets/icon.png",
+	"description": "A vs code tool to generate react components on the run",
+	"icon": "assets/icon.png",
 	"version": "1.0.0",
 	"publisher": "pixoDev",
 	"repository": "https://github.com/PixoDev/react-arch",
@@ -14,8 +14,8 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.reactArchClassComponent",
-        "onCommand:extension.extension.reactArchFunctionComponent",
-        "onCommand:extension.reactArchGenerateConfig"
+		"onCommand:extension.reactArchFunctionComponent",
+		"onCommand:extension.reactArchGenerateConfig"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -27,8 +27,8 @@
 			{
 				"command": "extension.reactArchFunctionComponent",
 				"title": "ReactArch Function"
-            },
-            {
+			},
+			{
 				"command": "extension.reactArchGenerateConfig",
 				"title": "ReactArch Generate Config"
 			}
@@ -37,13 +37,20 @@
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
+		"test": "mocha -r tsc -p ./ test/**/*.spec.ts",
 		"lint": "tslint -p ./",
 		"watch": "tsc -watch -p ./"
 	},
 	"devDependencies": {
 		"@types/node": "^8.10.25",
 		"@types/vscode": "^1.34.0",
+		"chai": "^4.2.0",
+		"mocha": "^6.2.0",
 		"tslint": "^5.16.0",
 		"typescript": "^3.5.1"
+	},
+	"dependencies": {
+		"@types/chai": "^4.1.7",
+		"@types/mocha": "^5.2.7"
 	}
 }

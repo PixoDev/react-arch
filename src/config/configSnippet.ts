@@ -1,0 +1,20 @@
+export const configSnippet: string[] = [
+    '{',
+    '   "settings": {',
+    '       "filenamePrefix": "",',
+    '       "filenameSuffix": "",',
+    '       "capitalizeFilename": true,',
+    '       "componentNamePrefix": "",',
+    '       "componentNameSuffix": "",',
+    '       "generateTestFile": true,',
+    '       "testFileSuffix": "spec",',
+    '       "independentTestFilesDirectory": false,',
+    '       "testsMirrorComponentsDirectory": false',
+    '   },',
+    '   "overrideSnippets": {',
+    '       "createClassComponent": [],',
+    '       "createFunctionComponent": [],',
+    '       "createTest": []',
+    '   }',
+    '}'
+]

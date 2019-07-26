@@ -2,6 +2,7 @@
 import * as vscode from 'vscode';
 import { getUserConfig } from './utils/userConfig';
 import { ComponentGenerator } from './component/generateComponent';
+import { generateUserConfig } from './config/generateUserConfig';
 
 export function activate(context: vscode.ExtensionContext) {
     let createFunctional = vscode.commands.registerCommand('extension.reactArchFunctionComponent', () => {
@@ -29,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     let createConfig = vscode.commands.registerCommand('extension.reactArchGenerateConfig' , () => {
-
+        generateUserConfig();
     });
 
     context.subscriptions.push(createFunctional);
