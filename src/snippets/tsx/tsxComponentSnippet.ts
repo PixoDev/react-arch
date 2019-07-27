@@ -6,8 +6,8 @@ import { getUserConfig } from "../../utils/userConfig";
 export const TsxComponentSnippet = (naming : NamingGenerator, type: string) : string[] => {
     let snippet;
     let userConfig = getUserConfig();
-    if(type === "function")snippet= functionalTSXSnippet(naming);
-    if(type === "class")snippet= classTemplateTSX(naming);
+    if(type === "function")snippet= functionalTSXSnippet();
+    if(type === "class")snippet= classTemplateTSX();
     if(snippet) { 
 
         if(userConfig.overrideSnippets.createClassComponent.length !== 0 && type === "class") {

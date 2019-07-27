@@ -7,6 +7,7 @@ import { VsMessage } from "../utils/vsMessageException";
 import { TsxTestSnippet } from "../snippets/tsx/tsxTestSnippet";
 import { UserConfig } from "../models/userConfig.interface";
 import { getUserConfig } from "../utils/userConfig";
+import { goToFile } from "../utils/goToFile";
 
 export class ComponentGenerator {
     private dirUtils: DirUtils;
@@ -23,7 +24,7 @@ export class ComponentGenerator {
         }
 
         if (workSpacePath) {
-            this.dir = join(workSpacePath,"/" + this.naming.componentFilename);
+            this.dir = join(workSpacePath,this.naming.dirName,"/" + this.naming.componentFilename);
         }
         this.dirUtils = new DirUtils(this.dir);
         this.generateComponent();
@@ -35,7 +36,10 @@ export class ComponentGenerator {
         let generatedComponent;
         let generatedTest;
         if (this.naming.extension === "tsx") {
-            generatedComponent = this.dirUtils.generateFile(TsxComponentSnippet(this.naming, this.componentType));
+            
+            if(generatedComponent = this.dirUtils.generateFile(TsxComponentSnippet(this.naming, this.componentType))) {
+                goToFile(this.dir)
+            };
             
             if(this.userConfig.settings.generateTestFile || !this.userConfig) {
                 generatedTest = this.dirUtils.generateTestFile(TsxTestSnippet(this.naming), this.naming);

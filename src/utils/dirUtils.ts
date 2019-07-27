@@ -35,6 +35,7 @@ export class DirUtils {
 
     generateDir() {
         const dirFolder = resolve(this.dir, "../");
+        console.log(dirFolder);
         this.generateDirRecursive(dirFolder);
     }
 
@@ -42,9 +43,6 @@ export class DirUtils {
     generateFile(content: string[]): boolean {
         const dir = this.dir;
         console.log(dir);
-        if (!this.isRootFile()) {
-
-        }
         this.generateDir();
         if (!existsSync(dir)) {
             this.writeFile(dir, content);

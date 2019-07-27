@@ -17,7 +17,7 @@ export const getUserConfig = (): UserConfig | null => {
         try {
             return JSON.parse(readFileSync(jsonConfig, 'utf8'));
         } catch (e) {
-            console.log(e);
+            
         }
     } 
 

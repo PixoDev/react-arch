@@ -1,6 +1,5 @@
-import { NamingGenerator } from "../../../utils/namingGenerator";
 
-export const classTemplateTSX = (naming: NamingGenerator): string[] => {
+export const classTemplateTSX = (): string[] => {
 
     return [
         "import React from 'React'",

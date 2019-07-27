@@ -9,6 +9,7 @@ export class NamingGenerator {
     public testFilename:string;
     public extension: string;
     public testExtension: string;
+    public dirName: string;
     private userConfig: UserConfig | null;
     constructor(
         public inputPath: string
@@ -18,13 +19,29 @@ export class NamingGenerator {
         let fileData = inputArray.slice(inputArray.length - 1)[0].split(".");
         this.name = fileData[0];
         
+        this.dirName = this.generateDirName(inputPath);
         this.generateExtension(fileData);
         this.componentName = this.generateComponentName();
         this.testFilename = this.generateTestFilename();
         this.componentFilename = this.generateComponentFilename();
     }
 
-    generateExtension(fileData) {
+
+    private generateDirName(inputPath: string): string {
+        let inputArray: string[] = inputPath.split("/");
+        let dir = "";
+
+        inputArray.forEach(el => {
+            if(el.indexOf("tsx") === -1 && el.indexOf("jsx") === -1 && el !== "") {
+                dir += "/" + el;
+            }
+        })  
+
+        console.log(dir);
+        return dir
+    };
+
+    generateExtension(fileData: Array<string>) {
         this.extension = fileData[1]; 
         this.testExtension = "spec";
         if(!this.extension){

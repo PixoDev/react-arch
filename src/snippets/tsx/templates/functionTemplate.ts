@@ -1,6 +1,4 @@
-import { NamingGenerator } from "../../../utils/namingGenerator";
-
-export const functionalTSXSnippet = (naming: NamingGenerator): string[] => {
+export const functionalTSXSnippet = (): string[] => {
 
     return [
         "import React from 'React';",

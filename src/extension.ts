@@ -7,8 +7,6 @@ import { generateUserConfig } from './config/generateUserConfig';
 export function activate(context: vscode.ExtensionContext) {
     let createFunctional = vscode.commands.registerCommand('extension.reactArchFunctionComponent', () => {
         let config = getUserConfig();
-        console.log("SETTINGS", config);
-        console.log(vscode.extensions);
         vscode.window.showInputBox({
             value:'/',
             prompt: `Create New Functional component relative to your current workspace folder root i.e: '/components/button.tsx`,
