@@ -37,7 +37,7 @@ You can set your own config.
 
 To override the snippets you can modify the corresponding JSON array with this syntax:
 
-![](https://raw.githubusercontent.com/PixoDev/react-arch/master/assets/snippet-example.jpg?token=AKHHIDNIHUPVD4SFMZYCR3C5HWZOK)
+![](/assets/snippet-example.jpg?raw=true)
 
 Each line of the array is a line in the generated snippet.
 Tabs and spaces are allowed.
