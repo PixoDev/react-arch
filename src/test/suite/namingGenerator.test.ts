@@ -1,5 +1,5 @@
 import { assert } from "chai";
-import { NamingGenerator } from "../../src/utils/namingGenerator";
+import { NamingGenerator } from "../../utils/namingGenerator";
 import { before } from 'mocha';
 
 suite("Naming generator component test", () => {

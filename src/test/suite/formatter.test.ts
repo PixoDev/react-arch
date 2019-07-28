@@ -1,6 +1,6 @@
 import { assert } from "chai";
-import { formatSnippet } from "../../src/utils/formatter";
-import { NamingGenerator } from "../../src/utils/namingGenerator";
+import { formatSnippet } from "../../utils/formatter";
+import { NamingGenerator } from "../../utils/namingGenerator";
 
 suite("Formatter function test", () => {
     const snippetTest = ["this is a formatted string test {-componentName-}"];
