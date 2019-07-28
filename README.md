@@ -30,8 +30,8 @@ NOTE: If the directory doesn't exist React Arch will generate it.
 
 You can set your own config.
 
-1.Generate a r-arch.config.json file. Open the command palette -- Windows Ctrl + Shift + P / MacOs Shift + ⌘ + P. Choose React-arch create config.
-2.Override the options as you wish.
+1. Generate a r-arch.config.json file. Open the command palette -- Windows Ctrl + Shift + P / MacOs Shift + ⌘ + P. Choose React-arch create config.
+2. Override the options as you wish.
 
 ### Overriding snippets
 
@@ -41,6 +41,6 @@ To override the snippets you can modify the corresponding JSON array with this s
 
 Each line of the array is a line in the generated snippet.
 Tabs and spaces are allowed.
-To inserta a line break add an empty array item.
+To insert a line break add an empty array item.
 If you want to insert the component name variable use `{-componentName-}`.
 
