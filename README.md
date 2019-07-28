@@ -10,7 +10,7 @@ A VScode extension to generate React components from snippets based on React cla
 3. Type the directory and name, React Arch generates .tsx and .jsx files depending of the extension you provide,
 the component will be generated in the root of the workspace folder you are working on.
 
-![snippet-example](https://raw.githubusercontent.com/PixoDev/react-arch/dev/assets/react-arch-class.gif?token=AKHHIDLSDUPTCCNEEYWQJCK5HWIO6)
+![example-gif](https://raw.githubusercontent.com/PixoDev/react-arch/dev/assets/react-arch-class.gif?token=AKHHIDLSDUPTCCNEEYWQJCK5HWIO6)
 
 
 #### Example
@@ -37,9 +37,7 @@ You can set your own config.
 
 To override the snippets you can modify the corresponding JSON array with this syntax:
 
-
-
-![snippet-example](https://raw.githubusercontent.com/PixoDev/react-arch/dev/assets/snippet-example.jpg?token=AKHHIDLOCS6KTPBLDFHPWQ25HWHXW)
+![](https://raw.githubusercontent.com/PixoDev/react-arch/dev/assets/snippet-example.jpg?token=AKHHIDLHHIDQLIB2XJZGWCS5HWIWI)
 
 Each line of the array is a line in the generated snippet.
 Tabs and spaces are allowed.
