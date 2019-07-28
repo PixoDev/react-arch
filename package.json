@@ -2,7 +2,7 @@
 	"name": "react-arch",
 	"displayName": "React Arch",
 	"description": "A vs code tool to generate react components on the run",
-	"icon": "https://raw.githubusercontent.com/PixoDev/react-arch/master/assets/icon.png?token=AKHHIDPVZ3Y3QT3JDXMK7B25HWD26",
+	"icon": "https://github.com/PixoDev/react-arch/blob/master/assets/icon.png?raw=true",
 	"version": "1.0.0",
 	"publisher": "pixoDev",
 	"repository": "https://github.com/PixoDev/react-arch",
