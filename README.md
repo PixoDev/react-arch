@@ -36,6 +36,8 @@ To override the snippets you can modify the corresponding JSON array with this s
 
 
 
+![snippet-example]("https://raw.githubusercontent.com/PixoDev/react-arch/dev/assets/snippet-example.png?token=AKHHIDNE56SKRHFGU6JHYFC5HWGPY")
+
 Each line of the array is a line in the generated snippet.
 Tabs and spaces are allowed.
 To inserta a line break add an empty array item.
